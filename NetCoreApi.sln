@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CCF1A9B5-3A3D-408C-8B8A-83E1EFA81501}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{032BE17D-D0D4-477F-AD34-E2448A0D703B}"
+	ProjectSection(SolutionItems) = preProject
+		Adımlar.txt = Adımlar.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebApi", "Api\HotelProject.WebApi\HotelProject.WebApi.csproj", "{DE74DDF9-04EE-4622-9D39-F6EE947C3F6E}"
 EndProject
