@@ -29,7 +29,7 @@ namespace HotelProject.WebApi.Controllers
 
             return Ok();
         }
-        [HttpDelete] //verileri siler
+        [HttpDelete("{id}")] //verileri siler
         public IActionResult DeleteService(int id)
         {
             var values = _serviceService.TGetByID(id);

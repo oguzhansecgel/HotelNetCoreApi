@@ -68,7 +68,7 @@ namespace HotelProject.WebUI.Controllers
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
 				var values = JsonConvert.DeserializeObject<UpdateStaffModel>(jsonData);
 				return View(values);
-			}
+			} 
 			return View();
         }
         [HttpPost]
