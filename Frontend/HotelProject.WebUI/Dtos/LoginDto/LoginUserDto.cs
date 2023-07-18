@@ -4,10 +4,11 @@ namespace HotelProject.WebUI.Dtos.LoginDto
 {
     public class LoginUserDto
     {
-        [Required(ErrorMessage ="Kullanıcı Adınızı Giriniz ")]
+        [Required(ErrorMessage = "Kullanıcı Adını Giriniz")]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Şifrenizi  Giriniz ")]
+        [Required(ErrorMessage = "Şifreyi Giriniz")]
         public string Password { get; set; }
+
     }
 }
