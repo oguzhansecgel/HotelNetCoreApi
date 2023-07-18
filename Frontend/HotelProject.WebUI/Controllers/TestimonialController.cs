@@ -48,6 +48,7 @@ namespace HotelProject.WebUI.Controllers
 				return View();
 			}
 		}
+
 		public async Task<IActionResult> DeleteTestimonial(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
@@ -72,12 +73,12 @@ namespace HotelProject.WebUI.Controllers
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> UpdateTestimonial(TestimonialViewModel model)
+		public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialViewModel model)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(model);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PutAsync("http://localhost:5185/api/Staff/", stringContent);
+			var responseMessage = await client.PutAsync("http://localhost:5185/api/Testimonial/", stringContent);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 
