@@ -8,5 +8,12 @@ namespace HotelProject.WebUI.Controllers
         {
             return View();
         }
-    }
+        [HttpGet]
+
+        public PartialViewResult _SubscribePartial()
+        {
+            return PartialView();
+        }
+
+	}
 }
