@@ -15,5 +15,21 @@ namespace HotelProject.DataAccessLayer.EntityFramework
         public EfAboutUsDal(Context context) : base(context)
         {
         }
+
+        public void Delete(Contacts t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(Contacts t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Contacts t)
+        {
+            throw new NotImplementedException();
+        }
+ 
     }
 }

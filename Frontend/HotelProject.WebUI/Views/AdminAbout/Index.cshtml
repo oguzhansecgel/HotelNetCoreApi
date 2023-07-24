@@ -1,0 +1,26 @@
+﻿@model List<UpdateAboutUsDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayoutController1/_AdminLayout.cshtml";
+}
+@*admin paneli*@
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Başlık 1</th>
+		<th>Başlık 2</th>
+		<th>Güncelle</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		{
+			<tr>
+				<th>@item.AboutUsID</th>
+				<td>@item.Title1</td>
+				<td>@item.Title2</td>
+				<td><a href="/AdminAbout/UpdateAbout/@item.AboutUsID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+				<td><a href="#" class="btn mb-1 btn-rounded btn-outline-dark">Detaylar</a></td>
+			</tr>
+		}
+	}
+</table>

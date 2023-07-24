@@ -3,6 +3,7 @@ using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.EntityFramework;
+using HotelProject.EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,9 @@ builder.Services.AddScoped<IRoomService, RoomManager>();
 builder.Services.AddScoped<ISubscriberDal, EfSubscriberDal>();
 builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 
+builder.Services.AddScoped<IContactsDal, EfContactsDal>();
+builder.Services.AddScoped<IContactsService, ContactsManager>();
+
 
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
@@ -30,6 +34,10 @@ builder.Services.AddScoped<IAboutUsService, AboutUsManager>();
 
 builder.Services.AddScoped<IBookingDal, EfBookingDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
+
+builder.Services.AddScoped<IGuestDal, EfGuestDal>();
+builder.Services.AddScoped<IGuestService, GuestManager>();
+
 
 builder.Services.AddAutoMapper(typeof(Program));
 
