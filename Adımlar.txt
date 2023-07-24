@@ -1,3 +1,7 @@
 Api testi ve swagger --
 Tema Ekleme
 Register - Login 
+Onay bekliyor
+Onaylandý
+Ýptal Edildi
+Bekletiliyor

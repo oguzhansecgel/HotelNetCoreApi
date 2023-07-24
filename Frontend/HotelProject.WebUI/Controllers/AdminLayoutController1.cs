@@ -8,11 +8,11 @@ namespace HotelProject.WebUI.Controllers
         {
             return View();
         }
-        public PartialViewResult HeadPartile()
-        {
-            return PartialView();
-        }
-        public PartialViewResult PreLoaderPartile() 
+		public PartialViewResult HeadPartial()
+		{
+			return PartialView();
+		}
+		public PartialViewResult PreLoaderPartile() 
         {
             return PartialView();
         }
@@ -24,6 +24,7 @@ namespace HotelProject.WebUI.Controllers
 		{
 			return PartialView();
 		}
+	
 		public PartialViewResult SideBarPartial()
 		{
 			return PartialView();

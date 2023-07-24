@@ -4,31 +4,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
-@await Html.PartialAsync("/Views/AdminLayoutController1/HeadPartile.cshtml")
+@await Html.PartialAsync("/Views/AdminLayoutController1/HeadPartial.cshtml")
 
 
 <body>
 
 
 	@await Html.PartialAsync("/Views/AdminLayoutController1/PreLoaderPartile.cshtml")
-
-
-	<!--**********************************
-		Main wrapper start
-	***********************************-->
 	<div id="main-wrapper">
-
-		
 		@await Html.PartialAsync("/Views/AdminLayoutController1/NavHeaderPartial.cshtml")
-
 		@await Html.PartialAsync("/Views/AdminLayoutController1/HeaderPartial.cshtml")
-
- 
 		@await Html.PartialAsync("/Views/AdminLayoutController1/SideBarPartial.cshtml")
- 
-		<!--**********************************
-			Content body start
-		***********************************-->
 		<div class="content-body">
 
 			<div class="container-fluid">
@@ -45,13 +31,8 @@
 			</div>
 
 		</div>
-
 		@await Html.PartialAsync("/Views/AdminLayoutController1/FooterPartial.cshtml")
-
 	</div>
-
 	@await Html.PartialAsync("/Views/AdminLayoutController1/ScriptPartial.cshtml")
-
 </body>
-
 </html>
