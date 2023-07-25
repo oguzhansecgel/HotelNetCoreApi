@@ -7,9 +7,13 @@
  <form method="post">
      <label>Personel Adı</label>
      <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
      <br />
     <label>Personel Unvan</label>
     <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
     <br />
     <label>Sosyal Medya 1</label>
     <input type="text" asp-for="SocialMedia1" class="form-control" />

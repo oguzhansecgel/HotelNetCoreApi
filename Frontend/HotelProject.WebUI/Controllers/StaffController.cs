@@ -35,13 +35,17 @@ namespace HotelProject.WebUI.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddStaff(AddStaffViewModel model)
 		{
-			var client = _httpClientFactory.CreateClient();
-			var jsonData = JsonConvert.SerializeObject(model);
-			StringContent stringContent = new StringContent(jsonData,Encoding.UTF8,"application/json");
-			var responseMessage = await client.PostAsync("http://localhost:5185/api/Staff",stringContent);
-			if(responseMessage.IsSuccessStatusCode)
+			if (ModelState.IsValid)
 			{
-				return RedirectToAction("Index");
+				var client = _httpClientFactory.CreateClient();
+				var jsonData = JsonConvert.SerializeObject(model);
+				StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+				var responseMessage = await client.PostAsync("http://localhost:5185/api/Staff", stringContent);
+				if (responseMessage.IsSuccessStatusCode)
+				{
+					return RedirectToAction("Index");
+				}
+				return View();
 			}
 			else
 			{

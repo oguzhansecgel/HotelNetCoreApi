@@ -7,6 +7,7 @@ using HotelProject.EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// dataacces ve business katmanlarýný burda tanýmlama yapmamýz gerekiyor
 
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IStaffDal,EfStaffDal>();
@@ -37,6 +38,9 @@ builder.Services.AddScoped<IBookingService, BookingManager>();
 
 builder.Services.AddScoped<IGuestDal, EfGuestDal>();
 builder.Services.AddScoped<IGuestService, GuestManager>();
+
+builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>();
+builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 
 
 builder.Services.AddAutoMapper(typeof(Program));

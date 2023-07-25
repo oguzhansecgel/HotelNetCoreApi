@@ -29,5 +29,7 @@ namespace HotelProject.WebApi.Controllers
             _contactsService.TInsert(contacts);
             return Ok();
         }
-    }
+ 
+ 
+	}
 }
