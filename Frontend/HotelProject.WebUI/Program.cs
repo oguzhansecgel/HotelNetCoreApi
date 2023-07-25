@@ -1,16 +1,21 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.Dtos.GuestDto;
+using HotelProject.WebUI.ValidationRules.GuestValidationRules;
 using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(typeof(Program));
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Add services to the container. //fluent validation olduðu zaman komuta addfluentvalidation eklenir.
+builder.Services.AddControllersWithViews().AddFluentValidation();
 
 builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(Path.GetTempPath()));
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
-
+builder.Services.AddTransient<IValidator<CreateGuestDto>, CreateGuestValidator>();
+builder.Services.AddTransient<IValidator<UpdateGuestDto>, UpdateGuestValidator>();
 
 builder.Services.AddHttpClient();
 var app = builder.Build();
