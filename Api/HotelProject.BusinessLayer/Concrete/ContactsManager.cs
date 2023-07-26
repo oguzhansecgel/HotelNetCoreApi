@@ -30,8 +30,9 @@ namespace HotelProject.BusinessLayer.Concrete
 
         public Contacts TGetByID(int id)
         {
-            throw new NotImplementedException();
-        }
+            return _contactsDal.GetByID(id);
+
+		}
 
         public void TInsert(Contacts t)
         {

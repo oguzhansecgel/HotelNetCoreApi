@@ -29,7 +29,13 @@ namespace HotelProject.WebApi.Controllers
             _contactsService.TInsert(contacts);
             return Ok();
         }
- 
- 
-	}
+        [HttpGet("{id}")] // idye göre getirir
+        public IActionResult GetMessage(int id)
+        {
+            var values = _contactsService.TGetByID(id);
+
+            return Ok(values);
+        }
+
+    }
 }
