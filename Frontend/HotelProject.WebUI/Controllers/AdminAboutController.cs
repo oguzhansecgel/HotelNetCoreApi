@@ -1,13 +1,15 @@
 ﻿using HotelProject.WebUI.Dtos.AboutUsDto;
 using HotelProject.WebUI.Dtos.BookingDto;
 using HotelProject.WebUI.Models.Staff;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
-	public class AdminAboutController : Controller
+    
+    public class AdminAboutController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 
