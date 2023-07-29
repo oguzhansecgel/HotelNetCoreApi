@@ -40,6 +40,7 @@
 									<label for="name">Adınız Soyadınız</label>
 								</div>
 							</div>
+
 							<div class="col-md-6">
 								<div class="form-floating">
 									<input type="email" class="form-control" id="email" placeholder="Mail Adresiniz" name="Mail">
@@ -48,10 +49,17 @@
 							</div>
 							<div class="col-12">
 								<div class="form-floating">
+									@Html.DropDownListFor(x => x.MessageCategoryID, (List<SelectListItem>)ViewBag.v as IEnumerable<SelectListItem>,new { @class = "form-control" })
+									<label for="subject">Konu Başlığı</label>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-floating">
 									<input type="text" class="form-control" id="subject" placeholder="Konu" name="Subject">
 									<label for="subject">Konu</label>
 								</div>
 							</div>
+
 							<div class="col-12">
 								<div class="form-floating">
 									<textarea class="form-control" placeholder="Mesajınızı Burada Bizimle Paylaşabilirsiniz." name="Message" id="message" style="height: 150px"></textarea>

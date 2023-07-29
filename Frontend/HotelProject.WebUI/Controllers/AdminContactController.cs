@@ -20,23 +20,42 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responserMessage = await client.GetAsync("http://localhost:5185/api/Contacts");
-            if (responserMessage.IsSuccessStatusCode)
+			var client2 = _httpClientFactory.CreateClient();
+			var responserMessage2 = await client2.GetAsync("http://localhost:5185/api/Contacts/GetContactCount");
+			var client3 = _httpClientFactory.CreateClient();
+			var responserMessage3 = await client2.GetAsync("http://localhost:5185/api/SendMessage/SendMessagesCount");
+			if (responserMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responserMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData);
-                return View(values);
+				var jsonData2 = await responserMessage2.Content.ReadAsStringAsync();
+				ViewBag.contactCount = jsonData2;
+				var jsonData3 = await responserMessage3.Content.ReadAsStringAsync();
+				ViewBag.sendMessageCount = jsonData3;
+				return View(values);
             }
-            return View();
+ 
+
+			return View();
+
         }
         public async Task<IActionResult> SendBox() // listeleme metodu
         {
             var client = _httpClientFactory.CreateClient();
             var responserMessage = await client.GetAsync("http://localhost:5185/api/SendMessage");
-            if (responserMessage.IsSuccessStatusCode)
+			var client2 = _httpClientFactory.CreateClient();
+			var responserMessage2 = await client2.GetAsync("http://localhost:5185/api/Contacts/GetContactCount");
+			var client3 = _httpClientFactory.CreateClient();
+			var responserMessage3 = await client2.GetAsync("http://localhost:5185/api/SendMessage/SendMessagesCount");
+			if (responserMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responserMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultSendBoxDto>>(jsonData);
-                return View(values);
+				var jsonData2 = await responserMessage2.Content.ReadAsStringAsync();
+				ViewBag.contactCount = jsonData2;
+				var jsonData3 = await responserMessage3.Content.ReadAsStringAsync();
+				ViewBag.sendMessageCount = jsonData3;
+				return View(values);
             }
             return View();
         }
@@ -67,9 +86,10 @@ namespace HotelProject.WebUI.Controllers
                 return View();
             }
         }
-        public PartialViewResult SideBarAdminContactPartial()
+        public async Task<PartialViewResult> SideBarAdminContactPartial()
         {
 
+          
             return PartialView();
         }
         public PartialViewResult SideBarAdminContactCategoryPartial()
@@ -79,27 +99,42 @@ namespace HotelProject.WebUI.Controllers
         }
         public async Task<IActionResult> MessageDetailsBySendBox(int id)
         {
-			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync($"http://localhost:5185/api/SendMessage/{id}");
-			if (responseMessage.IsSuccessStatusCode)
-			{
-				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<GetMessageByIdDto>(jsonData);
-				return View(values);
-			}
-			return View();
-		}
-		public async Task<IActionResult> MessageDetailsByInbox(int id)
-		{
-			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync($"http://localhost:5185/api/Contacts/{id}");
-			if (responseMessage.IsSuccessStatusCode)
-			{
-				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<InboxContactDto>(jsonData);
-				return View(values);
-			}
-			return View();
-		}
-	}
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5185/api/SendMessage/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<GetMessageByIdDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+        public async Task<IActionResult> MessageDetailsByInbox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5185/api/Contacts/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<InboxContactDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+
+        //public async Task<IActionResult> GetContactCount() // listeleme metodu
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var responserMessage = await client.GetAsync("http://localhost:5185/api/Contacts/GetContactCount");
+        //    if (responserMessage.IsSuccessStatusCode)
+        //    {
+        //        var jsonData = await responserMessage.Content.ReadAsStringAsync();
+        //        // var values = JsonConvert.DeserializeObject<List<InboxContactDto>>(jsonData);
+        //        ViewBag.data = jsonData;
+        //        return View();
+        //    }
+        //    return View();
+        //}
+    }
 }
