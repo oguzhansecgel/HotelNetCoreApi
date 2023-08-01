@@ -27,7 +27,7 @@ namespace HotelProject.WebUI.Controllers
 
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
 			var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
-			IEnumerable<SelectListItem> values2 = (from x in values
+			List<SelectListItem> values2 = (from x in values
 											select new SelectListItem
 											{
 												Text = x.MessageCategoryName,
