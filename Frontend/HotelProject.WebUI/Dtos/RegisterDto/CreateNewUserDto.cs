@@ -12,7 +12,6 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
 
 		[System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kullanıcı Adı Alanı Gereklidir..!")]
 		public string UserName { get; set; }
-		public string City { get; set; }
 
 		[System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mail Alanı Gereklidir..!")]
 		public string Mail { get; set; }
@@ -23,5 +22,6 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
 		[System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Şifre Tekrar Alanı Gereklidir..!")]
 		[Compare("Password",ErrorMessage ="Şifreler Uyuşmuyor")]
 		public string ConfirmPassword { get; set; }
+
 	}
 }

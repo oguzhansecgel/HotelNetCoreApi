@@ -27,19 +27,20 @@ namespace HotelProject.WebUI.Controllers
 
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
 			var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
-			List<SelectListItem> values2 = (from x in values
-											select new SelectListItem
-											{
-												Text = x.MessageCategoryName,
-												Value = x.MessageCategoryID.ToString()
-											}).ToList();
-			ViewBag.v = values2;
+            List<SelectListItem> values2 = (from x in values
+                                            select new SelectListItem
+                                            {
+                                                Text = x.MessageCategoryName,
+                                                Value = x.MessageCategoryID.ToString()
+                                            }).ToList();
+            ViewBag.v = values2;
 
-			return View();
-			//List<SelectListItem> values = (from x in )
+            return View();
 
-		}
-		[HttpGet]
+            //List<SelectListItem> values = (from x in )
+
+        }
+        [HttpGet]
 		public PartialViewResult SendMessage()
 		{
 			return PartialView();
