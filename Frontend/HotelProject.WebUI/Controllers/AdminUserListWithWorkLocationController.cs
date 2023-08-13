@@ -1,17 +1,14 @@
-﻿using HotelProject.EntityLayer.Concrete;
-using HotelProject.WebUI.Dtos.AppUserDto;
-using HotelProject.WebUI.Dtos.RoomDto;
-using Microsoft.AspNetCore.Identity;
+﻿using HotelProject.WebUI.Dtos.AppUserDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class AdminUsersController : Controller
+    public class AdminUserListWithWorkLocationController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public AdminUsersController(IHttpClientFactory httpClientFactory)
+        public AdminUserListWithWorkLocationController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -19,11 +16,11 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index() // listeleme metodu
         {
             var client = _httpClientFactory.CreateClient();
-            var responserMessage = await client.GetAsync("http://localhost:5185/api/AppUser");
+            var responserMessage = await client.GetAsync("http://localhost:5185/api/AppUserWorkLocation");
             if (responserMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responserMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultAppUserDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultAppUserWithWorkLocationDto>>(jsonData);
                 return View(values);
             }
             return View();

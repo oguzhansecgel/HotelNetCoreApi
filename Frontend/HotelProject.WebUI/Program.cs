@@ -37,6 +37,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 builder.Services.AddHttpClient();
 var app = builder.Build();
+
 // bu kod ile hata almaktaydým.
 //builder.Services.AddAutoMapper(typeof(Program));
 
