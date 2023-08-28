@@ -62,6 +62,7 @@ builder.Services.AddCors(opt =>
     });
 
 });
+
 // Add services to the container.
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
